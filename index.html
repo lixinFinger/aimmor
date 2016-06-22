@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <title>index</title>
+    <link rel="stylesheet" href="./css/reset.css"/>
+    <link rel="stylesheet" href="./css/swiper-3.3.1.min.css"/>
+    <link rel="stylesheet" href="./css/style.css"/>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/swiper-3.3.1.jquery.min.js"></script>
+</head>
+<body>
+    <div class="top">
+        <h1>
+            <a href="/">
+                <img src="./images/a-logo.png" alt="logo"/>
+            </a>
+        </h1>
+    </div>
+    <div class="nav index-nav" id="nav">
+        <ul class="nav-warp">
+            <li class="dib"><a href="./a/news.html" class="dib a-nav0 posr"><i class="posa"></i></a></li>
+            <li class="dib"><a href="./a/brand.html" class="dib a-nav1 posr"><i class="posa"></i></a></li>
+            <li class="dib"><a href="./a/about.html" class="dib a-nav2 posr"><i class="posa"></i></a></li>
+            <li class="dib"><a href="./a/style.html" class="dib a-nav3 posr"><i class="posa"></i></a></li>
+            <li class="dib"><a href="./a/shopInfo.html" class="dib a-nav4 posr"><i class="posa"></i></a></li>
+            <li class="dib"><a href="./a/contectUs.html" class="dib a-nav5 posr"><i class="posa"></i></a></li>
+        </ul>
+    </div>
+    <div class="seat">
+        <div class="dib"><a class="dib" href="/"></a></div>
+    </div>
+    <div class="a-index-swiper posr" id="index-swiper">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a class="a-index0 db"></a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="a-index1 db"></a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="a-index2 db"></a>
+                </div>
+            </div>
+            <div class="a-index-pos posa">
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="mask-prev posa"></div>
+                <div class="mask-next posa"></div>
+            </div>
+        </div>
+        <div class="zhanw posa">
+            <div class="swiper-pos js-swiper-prev posa">
+                <div class="posa"></div>
+            </div>
+            <div class="swiper-pos js-swiper-next posa">
+                <div class="posa"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="footer">
+        <div class="footer-warp clearfix">
+            <div class="footer-warp-r fr">
+                <span class="dib">SHARE ON</span>
+                <a href="javascript:;" onclick="dolog('facebook', function(){window.open('http://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('http://www.aimmor.com/a/index.html') + '&t=' + encodeURIComponent('http://www.aimmor.com/a/index.html是国内最大的'), '_parent', ['toolbar=0,status=0,resizable=1,width=660,height=280,left=',(screen.width-660)/2,',top=',(screen.height-280)/2].join(''));return false;});" class="wb8 share0 dib" title="分享到Facebook"></a>
+                <a href="javascript:;" class="share1 dib posr">
+                    <i class="posa"></i>
+                </a>
+                <div class="bshare-custom icon-medium-plus dib">
+                    <a title="分享到新浪微博" class="bshare-sinaminiblog share2"></a>
+                </div>
+                <a href="https://www.instagram.com" class="share3 dib"></a>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+<script src="./js/common.js"></script>
+<script>
+    // swiper
+    var $swiper = $("#index-swiper");
+    var $sPrev = $swiper.find(".js-swiper-prev");
+    var $sNext = $swiper.find(".js-swiper-next");
+    var winH = $(window).width();
+    $swiper.find(".swiper-container").css({"padding":"0 " + ( winH - 1218 )/2 + "px"});
+    $sPrev.css({"transform": "translate3d(-2436px, 0px, 0px)"});
+    $sNext.css({"transform":"translate3d(" + 1218 * 4 - 4 + "px, 0px, 0px)"});
+    var mySwiper = new Swiper ('.swiper-container', {
+        speed: 500,
+        autoplayDisableOnInteraction: false,
+        autoplay: 3000,
+        simulateTouch: false,
+        loop : true,
+        pagination : '.swiper-pagination',
+        paginationClickable :true,
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+        onSlidePrevStart: function (swiper) {
+            console.log(swiper.activeIndex);
+            $swiper.find(".swiper-slide").css({"width": "1218px"});
+            var x = - 1218 * ( swiper.activeIndex + 1 );
+            $sPrev.css({"transform": "translate3d(" + x + "px, 0px, 0px)", "transition-duration": "500ms"});
+        },
+        onSlideNextStart: function (swiper) {
+            $swiper.find(".swiper-slide").css({"width":"1218px"});
+            var x = 1218 * ( $swiper.find(".swiper-slide").length - swiper.activeIndex ) - 4;
+            $sNext.css({"transform":"translate3d(" + x + "px, 0px, 0px)","transition-duration":"500ms"});
+        }
+    });
+</script>
+</html>
